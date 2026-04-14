@@ -9,7 +9,7 @@ import './presentation/styles/index.css';
 
 function App() {
   const [content, setContent] = useState<string>(persistenceService.loadFromLocalStorage() || "");
-  const [fileHandle, setFileHandle] = useState<FileSystemFileHandle | null>(null);
+  const [fileHandle, setFileHandle] = useState<any | null>(null);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [printOptions, setPrintOptions] = useState({ showTitle: true, showPageNumber: true, showDate: true });
@@ -22,7 +22,7 @@ function App() {
     return () => clearTimeout(timer);
   }, [content]);
 
-  const handleOpen = (newContent: string, handle: FileSystemFileHandle) => {
+  const handleOpen = (newContent: string, handle: any) => {
     setContent(newContent);
     setFileHandle(handle);
   };
@@ -36,7 +36,7 @@ function App() {
     try {
       const handle = await persistenceService.saveFile(content, fileHandle);
       if (handle) setFileHandle(handle);
-    } catch (err: any) {
+    } catch {
       // Silent fail
     }
   };
@@ -45,7 +45,7 @@ function App() {
     try {
       const handle = await persistenceService.saveFile(content, null);
       if (handle) setFileHandle(handle);
-    } catch (err: any) {
+    } catch {
       // Silent fail
     }
   };

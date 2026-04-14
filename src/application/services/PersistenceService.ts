@@ -5,7 +5,7 @@
 export class PersistenceService {
   private static instance: PersistenceService;
   private STORAGE_KEY = 'zen-flow-last-session';
-  private fileHandle: FileSystemFileHandle | null = null;
+  private fileHandle: any | null = null;
 
   private constructor() {}
 
@@ -33,7 +33,7 @@ export class PersistenceService {
   /**
    * ファイルブラウザを開いて読み込む
    */
-  public async openFile(): Promise<{ content: string; handle: FileSystemFileHandle }> {
+  public async openFile(): Promise<{ content: string; handle: any }> {
     // @ts-ignore (File System Access API is modern)
     const [handle] = await window.showOpenFilePicker({
       types: [{ description: 'Markdown Files', accept: { 'text/markdown': ['.md', '.txt'] } }],
@@ -48,7 +48,7 @@ export class PersistenceService {
    * 現在のハンドルに上書き保存、または新規保存
    * サポート外ブラウザ（Firefox等）では自動的に通常のダウンロードへフォールバック
    */
-  public async saveFile(content: string, handle: FileSystemFileHandle | null = null): Promise<FileSystemFileHandle | null> {
+  public async saveFile(content: string, handle: any = null): Promise<any> {
     const targetHandle = handle || this.fileHandle;
     
     // File System Access API のチェック
@@ -59,7 +59,7 @@ export class PersistenceService {
       return null;
     }
 
-    let finalHandle: FileSystemFileHandle;
+    let finalHandle: any;
     try {
       if (!targetHandle) {
         // @ts-ignore

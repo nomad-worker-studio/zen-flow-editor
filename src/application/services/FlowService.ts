@@ -54,12 +54,15 @@ export class FlowService {
    */
   public async checkAIConnection(): Promise<boolean> {
     try {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), 2000);
       const response = await fetch(`${this.ollamaHost}/api/tags`, {
         method: 'GET',
-        signal: AbortSignal.timeout(2000) // 2秒でタイムアウト
+        signal: controller.signal
       });
+      clearTimeout(id);
       return response.ok;
-    } catch (err) {
+    } catch {
       console.warn("Local AI (Ollama) not detected.");
       return false;
     }
