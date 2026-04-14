@@ -1,0 +1,84 @@
+.zen-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-zen);
+}
+
+.zen-container {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 6rem 2rem; /* 余白を広めにとり、「紙」の質感を演出 */
+}
+
+/* 究極の静寂：コントロールパネルを極限まで控えめに */
+.zen-controls {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  /* ガラスモーフィズムを排除し、極めて薄い枠線のみに */
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  opacity: 0.3; /* 通常時は存在を消す */
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+.zen-controls:hover {
+  opacity: 1; /* ホバー時のみ明示的に表示 */
+  background: var(--bg-zen);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.hit-wall-btn {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--accent-zen);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.hit-wall-btn:hover {
+  background: var(--text-zen);
+  color: var(--bg-zen);
+}
+
+.model-selector {
+  background: transparent;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+/* アニメーションなしの即時表示トースト */
+.manual-help-toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-zen);
+  border: 1px solid var(--accent-zen);
+  padding: 1rem 1.5rem;
+  border-radius: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+  max-width: 600px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

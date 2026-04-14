@@ -1,0 +1,83 @@
+.harmonia-overlay {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  max-width: 380px;
+  width: 90%;
+  pointer-events: none;
+  /* アニメーションなし：即時表示 */
+}
+
+.harmonia-overlay.visible {
+  display: block;
+  pointer-events: auto;
+}
+
+.harmonia-overlay.hidden {
+  display: none;
+}
+
+.harmonia-card {
+  background: var(--bg-zen);
+  border: 1px solid var(--text-zen);
+  border-radius: 0; /* 直角で「静寂・堅実」を表現 */
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0px var(--accent-zen); /* 影も静的で明確なものに */
+}
+
+.harmonia-avatar {
+  display: none; /* 装飾的なアバターを排除しノイズを減らす */
+}
+
+.harmonia-content {
+  flex: 1;
+}
+
+.harmonia-title {
+  margin: 0 0 0.8rem 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--harmonia-subtle);
+  padding-bottom: 0.3rem;
+}
+
+.harmonia-message {
+  margin: 0 0 1.2rem 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-zen);
+  font-family: var(--font-serif);
+}
+
+.harmonia-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.harmonia-btn {
+  background: transparent;
+  border: 1px solid var(--text-zen);
+  padding: 0.4rem 1rem;
+  border-radius: 0;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: var(--text-zen);
+  transition: all 0.15s ease;
+}
+
+.harmonia-btn.highlight {
+  background: var(--text-zen);
+  color: var(--bg-zen);
+}
+
+.harmonia-btn:hover {
+  background: var(--text-dim);
+  border-color: var(--text-dim);
+  color: var(--bg-zen);
+}

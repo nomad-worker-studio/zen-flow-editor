@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,ital,wght@6..96,0,400..900;6..96,1,400..900&family=Inter:wght@300;400;600&family=Noto+Serif+JP:wght@300;400;500&display=swap');
+
+:root {
+  /* Nomad Worker Studio - Zen Flow Palette (Ultimate Stillness) */
+  --bg-zen: #fdfdfc;
+  --text-zen: #2a2a2a;
+  --text-dim: #707070;
+  --accent-zen: #8c8c8c;
+  --harmonia-subtle: rgba(0, 0, 0, 0.03);
+  
+  --font-serif: 'Bodoni Moda', 'Noto Serif JP', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --spacing-base: 1.8;
+  --max-width-editor: 720px;
+  
+  /* 全てのアニメーション・トランジションを最小化または排除 */
+  --transition-none: none;
+  --transition-fast: 0.1s ease-out;
+
+  font-size: 20px;
+  line-height: var(--spacing-base);
+  color: var(--text-zen);
+  background-color: var(--bg-zen);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-zen: #141414;
+    --text-zen: #e0e0e0;
+    --text-dim: #808080;
+    --accent-zen: #606060;
+    --harmonia-subtle: rgba(255, 255, 255, 0.05);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--bg-zen);
+  /* アニメーションなし */
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base Styles */
+h1, h2, h3 {
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--text-zen);
+}
+
+::selection {
+  background: var(--harmonia-subtle);
+  color: inherit;
+}
+
+/* Typography Utilities */
+.zen-serif {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+}
+
+/* アニメーション関連は全て削除 */
+
+/* --- Print Styles --- */
+@media print {
+  @page {
+    margin: 20mm;
+    size: A4;
+  }
+
+  /* 非表示にする要素 */
+  .zen-menu-container,
+  .zen-controls,
+  .selection-toolbar,
+  .harmonia-intervention,
+  .print-modal-overlay {
+    display: none !important;
+  }
+
+  body, :root {
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  .zen-editor-container {
+    padding: 0 !important;
+    box-shadow: none !important;
+    max-width: none !important;
+  }
+
+  .zen-editor {
+    border: none !important;
+    overflow: visible !important;
+  }
+
+  /* 印刷用ヘッダー/フッター */
+  .print-only-title {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 9pt;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 0.5px solid #eee;
+    padding-bottom: 5mm;
+  }
+
+  .print-only-footer {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #888;
+    border-top: 0.5px solid #eee;
+    padding-top: 5mm;
+  }
+
+  .print-page-num::after {
+    content: counter(page);
+  }
+
+  /* プレースホルダーの非表示 */
+  .zen-editor:empty:before {
+    content: "" !important;
+  }
+}
+
+/* 通常時は非表示 */
+.print-only-title,
+.print-only-footer {
+  display: none;
+}

@@ -1,0 +1,37 @@
+.zen-editor-wrapper {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.zen-editor {
+  width: 100%;
+  max-width: var(--max-width-editor);
+  outline: none;
+  min-height: 70vh;
+  /* 究極のタイポグラフィ：装飾を一切排除 */
+  font-size: 1rem;
+  line-height: var(--spacing-base);
+  color: var(--text-zen);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* プレースホルダーの静的な美しさ */
+.zen-editor:empty:before {
+  content: attr(data-placeholder);
+  color: var(--text-dim);
+  font-style: italic;
+  font-weight: 300;
+  pointer-events: none;
+  display: block;
+}
+
+/* モバイル対応：余白の調整 */
+@media (max-width: 768px) {
+  .zen-editor {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+}

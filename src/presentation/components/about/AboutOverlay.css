@@ -1,0 +1,150 @@
+.about-overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.about-modal {
+  background: var(--bg-zen);
+  border: 1px solid var(--text-zen);
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 8px 0px var(--text-zen);
+  animation: modal-pop 0.2s ease-out;
+}
+
+@keyframes modal-pop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.about-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--harmonia-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  letter-spacing: 0.1em;
+}
+
+.about-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-dim);
+  line-height: 1;
+}
+
+.about-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.about-section {
+  margin-bottom: 2rem;
+}
+
+.about-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.about-version {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid var(--harmonia-subtle);
+  padding-bottom: 0.3rem;
+}
+
+.license-type {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.credits-list {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.credits-list ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.disclaimer-text {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-zen);
+  background: #f8f8f6;
+  padding: 1rem;
+  border-left: 3px solid var(--text-dim);
+}
+
+.pwa-guide-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.pwa-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pwa-step-chip {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: var(--harmonia-subtle);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  color: var(--text-zen);
+  border: 1px solid var(--accent-zen);
+}
+
+.about-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--harmonia-subtle);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.about-modal::-webkit-scrollbar {
+  width: 4px;
+}
+
+.about-modal::-webkit-scrollbar-thumb {
+  background: var(--text-dim);
+}

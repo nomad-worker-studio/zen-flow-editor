@@ -1,0 +1,44 @@
+.harmonia-trigger {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--accent-zen);
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-base);
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.harmonia-trigger:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.harmonia-icon {
+  font-size: 18px;
+}
+
+.harmonia-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: var(--text-zen);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .harmonia-trigger {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+  }
+}
